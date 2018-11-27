@@ -2,7 +2,7 @@ from kafka import KafkaConsumer
 
 
 def consume(auto_commit=True, topic="intputTopic"):
-    consumer = KafkaConsumer(bootstrap_servers='localhost:9092',
+    consumer = KafkaConsumer(bootstrap_servers=['localhost:9092', 'localhost:9093'],
                              group_id='events_ent',
                              consumer_timeout_ms=1000,
                              auto_offset_reset='earliest',
