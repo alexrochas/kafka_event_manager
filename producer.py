@@ -3,9 +3,9 @@ from kafka.errors import KafkaError
 import json
 
 
-def send_message(message, kafka_url='localhost:9092', topic='inputTopic'):
+def send_message(message, topic='inputTopic'):
     print('Trying to send message to topic %s' % topic)
-    producer = KafkaProducer(bootstrap_servers=[kafka_url])
+    producer = KafkaProducer(bootstrap_servers=['localhost:9092', 'localhost:9093'])
     json_message = json.dumps(message)
     future = producer.send(topic, json_message.encode())
 
